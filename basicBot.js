@@ -280,8 +280,8 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "http://pow.ninja/plugdj/NSFWlist.json",
-                OP: "http://pow.ninja/plugdj/OPlist.json"
+                NSFW: "https://rawgit.com/IEvolution1/basicBot-customization/master/blacklists/ExampleOPlist.json",
+                OP: "https://rawgit.com/IEvolution1/basicBot-customization/master/blacklists/ExampleOPlist.json"
             }
         },
         room: {
