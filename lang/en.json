@@ -10,7 +10,7 @@
 
     "welcome": "/me Welcome %%NAME%% join the DJ list!",
     "welcomeback": "/me Welcome back, %%NAME%%",
-    "songknown": "/me @%%NAME%%, this song has been played recently. Skipping...",
+    "songknown": "/me @%%NAME%%, this song is in the DJ history.",
     "timelimit": "/me @%%NAME%%, your song is longer than %%MAXLENGTH%% minutes, are you mad?",
     "permissionownsong": "/me :up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "/me This track is on the %%BLACKLIST%% blacklist! Nice try, skipping...",
