@@ -54,7 +54,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/IEvolution1/IEvolution/master/lang/langIndex.json", function (json) {
+        $.get("https://rawgit.com/Yemasthui/basicBot/master/lang/langIndex.json", function (json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -179,27 +179,27 @@
     var botCreatorIDs = ["3851534", "4105209"];
 
     var basicBot = {
-        version: "1.0",
+        version: "2.3.4",
         status: false,
-        name: "Evolutions bot",
+        name: "basicBot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/IEvolution1/IEvolution/master/basicBot.js",
+        scriptLink: "https://rawgit.com/Yemasthui/basicBot/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/IEvolution1/IEvolution/master/lang/en.json",
+        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "Evolutions bot",
+            botName: "basicBot",
             language: "english",
-            chatLink: "https://rawgit.com/IEvolution1/IEvolution/master/lang/en.json",
-            startupCap: 50, // 1-200
-            startupVolume: 5, // 0-100
+            chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+            startupCap: 1, // 1-200
+            startupVolume: 0, // 0-100
             startupEmoji: false, // true or false
             cmdDeletion: true,
             maximumAfk: 120,
-            afkRemoval: false,
+            afkRemoval: true,
             maximumDc: 60,
             bouncerPlus: true,
             blacklistEnabled: true,
@@ -280,8 +280,8 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/IEvolution1/basicBot-customization/master/blacklists/ExampleOPlist.json",
-                OP: "https://rawgit.com/IEvolution1/basicBot-customization/master/blacklists/ExampleOPlist.json"
+                NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
+                OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleOPlist.json"
             }
         },
         room: {
@@ -1500,7 +1500,7 @@
                         var launchT = basicBot.room.roomstats.launchTime;
                         var durationOnline = Date.now() - launchT;
 
-                        if (inactivity >= durationOnline){
+                        if (inactivity == durationOnline){
                             API.sendChat(subChat(basicBot.chat.inactivelonger, {botname: basicBot.settings.botName, name: chat.un, username: name}));
                         } else {
                         API.sendChat(subChat(basicBot.chat.inactivefor, {name: chat.un, username: name, time: time}));
@@ -2257,6 +2257,34 @@
                 }
             },
 
+            languageCommand: {
+                command: 'language',
+                rank: 'manager',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var msg = chat.message;
+                        if (msg.length <= cmd.length + 1) return API.sendChat(subChat(basicBot.chat.currentlang, {language: basicBot.settings.language}));
+                        var argument = msg.substring(cmd.length + 1);
+
+                        $.get("https://rawgit.com/Yemasthui/basicBot/master/lang/langIndex.json", function (json) {
+                            var langIndex = json;
+                            var link = langIndex[argument.toLowerCase()];
+                            if (typeof link === "undefined") {
+                                API.sendChat(subChat(basicBot.chat.langerror, {link: "http://git.io/vJ9nI"}));
+                            }
+                            else {
+                                basicBot.settings.language = argument;
+                                loadChat();
+                                API.sendChat(subChat(basicBot.chat.langset, {language: basicBot.settings.language}));
+                            }
+                        });
+                    }
+                }
+            },
+
             leaveCommand: {
                 command: 'leave',
                 rank: 'user',
@@ -2291,7 +2319,7 @@
                         if (dj === chat.uid) isDj = true;
                         if (perm >= 1 || isDj) {
                             if (media.format === 1) {
-                                var linkToSong = "https://www.youtube.com/watch?v=" + media.cid;
+                                var linkToSong = "http://youtu.be/" + media.cid;
                                 API.sendChat(subChat(basicBot.chat.songlink, {name: from, link: linkToSong}));
                             }
                             if (media.format === 2) {
@@ -2667,19 +2695,6 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         API.sendChat(basicBot.chat.pong)
-                    }
-                }
-            },
-
-            purchaseCommand: {
-                command: ['purchase'],
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        API.sendChat(subChat(basicBot.chat.purchase, {name: chat.un}));
                     }
                 }
             },
