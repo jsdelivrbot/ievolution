@@ -54,7 +54,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/Yemasthui/basicBot/master/lang/langIndex.json", function (json) {
+        $.get("https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json", function (json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -183,23 +183,23 @@
         status: false,
         name: "Evolutions Bot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Yemasthui/basicBot/master/basicBot.js",
+        scriptLink: "https://rawgit.com/IEvolution1/ievoutlion/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+        chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "basicBot",
+            botName: "Evolutions Bot",
             language: "english",
-            chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
-            startupCap: 1, // 1-200
-            startupVolume: 0, // 0-100
+            chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
+            startupCap: 50, // 1-200
+            startupVolume: 5, // 0-100
             startupEmoji: false, // true or false
             cmdDeletion: true,
-            maximumAfk: 120,
-            afkRemoval: true,
+            maximumAfk: 1200,
+            afkRemoval: false,
             maximumDc: 60,
             bouncerPlus: true,
             blacklistEnabled: true,
@@ -212,7 +212,7 @@
             voteSkipLimit: 10,
             historySkip: false,
             timeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 7,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -220,7 +220,7 @@
             lockskipReasons: [
                 ["theme", "This song does not fit the room theme. "],
                 ["op", "This song is on the OP list. "],
-                ["history", "This song is in the history. "],
+                ["history", "This song has been played recently. "],
                 ["mix", "You played a mix, which is against the rules. "],
                 ["sound", "The song you played had bad sound quality or no sound. "],
                 ["nsfw", "The song you contained was NSFW (image or sound). "],
@@ -263,9 +263,9 @@
             ],
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
-            motdEnabled: false,
-            motdInterval: 5,
-            motd: "Temporary Message of the Day",
+            motdEnabled: true,
+            motdInterval: 120,
+            motd: "Remember to sign up on the forum at www.grandtheftaltis.co.uk!",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
@@ -299,7 +299,6 @@
             autodisableFunc: function () {
                 if (basicBot.status && basicBot.settings.autodisable) {
                     API.sendChat('!afkdisable');
-                    API.sendChat('!joindisable');
                 }
             },
             queueing: 0,
@@ -2269,7 +2268,7 @@
                         if (msg.length <= cmd.length + 1) return API.sendChat(subChat(basicBot.chat.currentlang, {language: basicBot.settings.language}));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get("https://rawgit.com/Yemasthui/basicBot/master/lang/langIndex.json", function (json) {
+                        $.get("https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json", function (json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === "undefined") {
