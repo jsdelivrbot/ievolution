@@ -2609,7 +2609,6 @@
                         if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));
                         var permFrom = basicBot.userUtilities.getPermission(chat.uid);
                         var permUser = basicBot.userUtilities.getPermission(user.id);
-                        if (permFrom > permUser) {
                             /*
                              basicBot.room.mutedUsers.push(user.id);
                              if (time === null) API.sendChat(subChat(basicBot.chat.mutednotime, {name: chat.un, username: name}));
@@ -2664,7 +2663,6 @@
                                     API.moderateUnmuteUser(id);
                                 }, time * 60 * 1000, user.id);
                             }
-                        }
                     }
                 }
             },
