@@ -117,7 +117,7 @@
     "mutedmaxtime": "\/me [@%%NAME%%] You can only mute for maximum %%TIME%% minutes.",
     "mutedtime": "\/me [@%%NAME%%] Muted @%%USERNAME%% for %%TIME%% minutes.",
     "unmuted": "\/me [@%%NAME%%] Unmuted @%%USERNAME%%.",
-    "muterank": "\/me [@%%NAME%%] You can't mute persons with an equal or higher rank than you.",
+    "muterank": "\/me [@%%NAME%%] You can't mute persons with an equal or higher rank than you...",
     "oplist": "\/me OP list: %%LINK%%",
     "pong": "\/me Pong!",
     "reload": "\/me Be right back.",
