@@ -179,12 +179,12 @@
     var botCreatorIDs = ["3851534", "4105209"];
 
     var basicBot = {
-        version: "1.3",
+        version: "1.4",
         status: false,
         name: "Evolutions Bot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/IEvolution1/ievoutlion/master/basicBot.js",
-        cmdLink: "http://git.io/245Ppg",
+        cmdLink: "http://grandtheftaltis.co.uk",
         chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
         chat: null,
         loadChat: loadChat,
@@ -212,7 +212,7 @@
             voteSkipLimit: 10,
             historySkip: false,
             timeGuard: true,
-            maximumSongLength: 7,
+            maximumSongLength: 6,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -856,8 +856,8 @@
                 }
             }
         },
-        eventDjadvance: function (obj) {
-            $("#woot").click(); // autowoot
+       // eventDjadvance: function (obj) {
+            //$("#woot").click(); // autowoot
 
             var user = basicBot.userUtilities.lookupUser(obj.dj.id)
             for(var i = 0; i < basicBot.room.users.length; i++){
@@ -1172,7 +1172,7 @@
                 eventVoteupdate: $.proxy(this.eventVoteupdate, this),
                 eventCurateupdate: $.proxy(this.eventCurateupdate, this),
                 eventRoomscoreupdate: $.proxy(this.eventRoomscoreupdate, this),
-                eventDjadvance: $.proxy(this.eventDjadvance, this),
+                //eventDjadvance: $.proxy(this.eventDjadvance, this),
                 //eventDjupdate: $.proxy(this.eventDjupdate, this),
                 eventWaitlistupdate: $.proxy(this.eventWaitlistupdate, this),
                 eventVoteskip: $.proxy(this.eventVoteskip, this),
@@ -1189,7 +1189,7 @@
             API.on(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
             API.on(API.GRAB_UPDATE, this.proxy.eventCurateupdate);
             API.on(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
-            API.on(API.ADVANCE, this.proxy.eventDjadvance);
+           // API.on(API.ADVANCE, this.proxy.eventDjadvance);
             API.on(API.WAIT_LIST_UPDATE, this.proxy.eventWaitlistupdate);
             API.on(API.MOD_SKIP, this.proxy.eventModskip);
             API.on(API.CHAT_COMMAND, this.proxy.eventChatcommand);
@@ -1204,7 +1204,7 @@
             API.off(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
             API.off(API.CURATE_UPDATE, this.proxy.eventCurateupdate);
             API.off(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
-            API.off(API.ADVANCE, this.proxy.eventDjadvance);
+            //API.off(API.ADVANCE, this.proxy.eventDjadvance);
             API.off(API.WAIT_LIST_UPDATE, this.proxy.eventWaitlistupdate);
             API.off(API.MOD_SKIP, this.proxy.eventModskip);
             API.off(API.CHAT_COMMAND, this.proxy.eventChatcommand);
