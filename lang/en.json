@@ -10,7 +10,7 @@
     "online": "\/me %%BOTNAME%% v%%VERSION%% online!",
     "welcome": "\/me Welcome %%NAME%%",
     "welcomeback": "\/me Welcome back again, %%NAME%%",
-    "songknown": "\/me @%%NAME%%, this song has been played recently, therefor was skipped.",
+    "songknown": "\/me @%%NAME%%, this song has been played recently.",
     "timelimit": "\/me @%%NAME%%, your song is longer than %%MAXLENGTH%% minutes, don't be greedy.",
     "permissionownsong": "\/me :up: @%%NAME%% has permission to play their own production!",
     "isblacklisted": "\/me This track is on the %%BLACKLIST%% blacklist! Skipping...",
