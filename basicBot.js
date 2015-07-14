@@ -184,7 +184,7 @@
         name: "Evolutions Bot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/IEvolution1/ievoutlion/master/basicBot.js",
-        cmdLink: "http://grandtheftaltis.co.uk",
+        cmdLink: "http://www.grandtheftaltis.co.uk",
         chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
         chat: null,
         loadChat: loadChat,
@@ -212,7 +212,7 @@
             voteSkipLimit: 10,
             historySkip: false,
             timeGuard: true,
-            maximumSongLength: 6,
+            maximumSongLength: 7,
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -856,19 +856,19 @@
                 }
             }
         },
-       // eventDjadvance: function (obj) {
-            //$("#woot").click(); // autowoot
+        //eventDjadvance: function (obj) {
+        //    $("#woot").click(); // autowoot
 
-            var user = basicBot.userUtilities.lookupUser(obj.dj.id)
-            for(var i = 0; i < basicBot.room.users.length; i++){
-                if(basicBot.room.users[i].id === user.id){
-                    basicBot.room.users[i].lastDC = {
-                        time: null,
-                        position: null,
-                        songCount: 0
-                    };
-                }
-            }
+        //    var user = basicBot.userUtilities.lookupUser(obj.dj.id)
+        //    for(var i = 0; i < basicBot.room.users.length; i++){
+        //        if(basicBot.room.users[i].id === user.id){
+        //            basicBot.room.users[i].lastDC = {
+        //                time: null,
+        //                position: null,
+        //                songCount: 0
+        //            };
+        //        }
+        //    }
 
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return;
@@ -1189,7 +1189,7 @@
             API.on(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
             API.on(API.GRAB_UPDATE, this.proxy.eventCurateupdate);
             API.on(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
-           // API.on(API.ADVANCE, this.proxy.eventDjadvance);
+            //.on(API.ADVANCE, this.proxy.eventDjadvance);
             API.on(API.WAIT_LIST_UPDATE, this.proxy.eventWaitlistupdate);
             API.on(API.MOD_SKIP, this.proxy.eventModskip);
             API.on(API.CHAT_COMMAND, this.proxy.eventChatcommand);
@@ -1286,7 +1286,7 @@
             basicBot.status = true;
             API.sendChat('/cap ' + basicBot.settings.startupCap);
             API.setVolume(basicBot.settings.startupVolume);
-            $("#woot").click();
+            //$("#woot").click();
             if (basicBot.settings.startupEmoji) {
                 var emojibuttonoff = $(".icon-emoji-off");
                 if (emojibuttonoff.length > 0) {
