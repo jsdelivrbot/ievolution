@@ -856,19 +856,19 @@
                 }
             }
         },
-        //eventDjadvance: function (obj) {
-        //    $("#woot").click(); // autowoot
+        eventDjadvance: function (obj) {
+            $("#woot").click(); // autowoot
 
-        //    var user = basicBot.userUtilities.lookupUser(obj.dj.id)
-        //    for(var i = 0; i < basicBot.room.users.length; i++){
-        //        if(basicBot.room.users[i].id === user.id){
-        //            basicBot.room.users[i].lastDC = {
-        //                time: null,
-        //                position: null,
-        //                songCount: 0
-        //            };
-        //        }
-        //    }
+            var user = basicBot.userUtilities.lookupUser(obj.dj.id)
+            for(var i = 0; i < basicBot.room.users.length; i++){
+                if(basicBot.room.users[i].id === user.id){
+                    basicBot.room.users[i].lastDC = {
+                        time: null,
+                        position: null,
+                        songCount: 0
+                    };
+                }
+            }
 
             var lastplay = obj.lastPlay;
             if (typeof lastplay === 'undefined') return;
@@ -1172,7 +1172,7 @@
                 eventVoteupdate: $.proxy(this.eventVoteupdate, this),
                 eventCurateupdate: $.proxy(this.eventCurateupdate, this),
                 eventRoomscoreupdate: $.proxy(this.eventRoomscoreupdate, this),
-                //eventDjadvance: $.proxy(this.eventDjadvance, this),
+                eventDjadvance: $.proxy(this.eventDjadvance, this),
                 //eventDjupdate: $.proxy(this.eventDjupdate, this),
                 eventWaitlistupdate: $.proxy(this.eventWaitlistupdate, this),
                 eventVoteskip: $.proxy(this.eventVoteskip, this),
@@ -1189,7 +1189,7 @@
             API.on(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
             API.on(API.GRAB_UPDATE, this.proxy.eventCurateupdate);
             API.on(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
-            //.on(API.ADVANCE, this.proxy.eventDjadvance);
+            API.on(API.ADVANCE, this.proxy.eventDjadvance);
             API.on(API.WAIT_LIST_UPDATE, this.proxy.eventWaitlistupdate);
             API.on(API.MOD_SKIP, this.proxy.eventModskip);
             API.on(API.CHAT_COMMAND, this.proxy.eventChatcommand);
@@ -1204,7 +1204,7 @@
             API.off(API.VOTE_UPDATE, this.proxy.eventVoteupdate);
             API.off(API.CURATE_UPDATE, this.proxy.eventCurateupdate);
             API.off(API.ROOM_SCORE_UPDATE, this.proxy.eventRoomscoreupdate);
-            //API.off(API.ADVANCE, this.proxy.eventDjadvance);
+            API.off(API.ADVANCE, this.proxy.eventDjadvance);
             API.off(API.WAIT_LIST_UPDATE, this.proxy.eventWaitlistupdate);
             API.off(API.MOD_SKIP, this.proxy.eventModskip);
             API.off(API.CHAT_COMMAND, this.proxy.eventChatcommand);
