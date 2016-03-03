@@ -196,7 +196,7 @@
             chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
             startupCap: 50, // 1-200
             startupVolume: 5, // 0-100
-            startupEmoji: false, // true or false
+            startupEmoji: true, // true or false
             cmdDeletion: true,
             maximumAfk: 1200,
             afkRemoval: false,
@@ -208,7 +208,7 @@
             maximumLocktime: 10,
             cycleGuard: true,
             maximumCycletime: 10,
-            voteSkip: false,
+            voteSkip: true,
             voteSkipLimit: 10,
             historySkip: false,
             timeGuard: true,
