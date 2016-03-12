@@ -857,7 +857,7 @@
             }
         },
         eventDjadvance: function (obj) {
-            $("#woot").click(); // autowoot
+           // $("#woot").click(); // autowoot
 
             var user = basicBot.userUtilities.lookupUser(obj.dj.id)
             for(var i = 0; i < basicBot.room.users.length; i++){
