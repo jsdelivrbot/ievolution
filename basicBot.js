@@ -191,7 +191,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "Evolutions Bot",
+            botName: "GTA Cannon",
             language: "english",
             chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
             startupCap: 50, // 1-200
@@ -209,7 +209,7 @@
             cycleGuard: true,
             maximumCycletime: 10,
             voteSkip: true,
-            voteSkipLimit: 10,
+            voteSkipLimit: 7,
             historySkip: false,
             timeGuard: true,
             maximumSongLength: 7,
