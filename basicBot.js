@@ -183,9 +183,9 @@
         status: false,
         name: "Evolutions Bot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/IEvolution1/ievoutlion/master/basicBot.js",
-        cmdLink: "http://www.grandtheftaltis.co.uk",
-        chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
+        scriptLink: "https://raw.githubusercontent.com/IEvolution1/ievoutlion/master/basicBot.js",
+        cmdLink: "http://www.grandtheftarma.co.uk",
+        chatLink: "https://raw.githubusercontent.com/IEvolution1/ievolution/master/lang/langIndex.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -193,7 +193,7 @@
         settings: {
             botName: "GTA Cannon",
             language: "english",
-            chatLink: "https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json",
+            chatLink: "https://raw.githubusercontent.com/IEvolution1/ievolution/master/lang/langIndex.json",
             startupCap: 50, // 1-200
             startupVolume: 5, // 0-100
             startupEmoji: true, // true or false
@@ -265,7 +265,7 @@
             afkRankCheck: "ambassador",
             motdEnabled: true,
             motdInterval: 120,
-            motd: "Remember to sign up on the forum at www.grandtheftaltis.co.uk!",
+            motd: "Remember to sign up on the forum at www.grandtheftarma.co.uk!",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
@@ -280,8 +280,8 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/IEvolution1/ievolution/master/Blacklist.json",
-                OP: "https://rawgit.com/IEvolution1/ievolution/master/Blacklist.json"
+                NSFW: "https://raw.githubusercontent.com/IEvolution1/ievolution/master/Blacklist.json",
+                OP: "https://raw.githubusercontent.com/IEvolution1/ievolution/master/Blacklist.json"
             }
         },
         room: {
@@ -2268,7 +2268,7 @@
                         if (msg.length <= cmd.length + 1) return API.sendChat(subChat(basicBot.chat.currentlang, {language: basicBot.settings.language}));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get("https://rawgit.com/IEvolution1/ievolution/master/lang/langIndex.json", function (json) {
+                        $.get("https://raw.githubusercontent.com/IEvolution1/ievolution/master/lang/langIndex.json", function (json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === "undefined") {
